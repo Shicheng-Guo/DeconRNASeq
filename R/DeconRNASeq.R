@@ -82,7 +82,8 @@ DeconRNASeq = function(datasets, signatures, proportions=NULL, checksig=FALSE, k
   ## reorder the rows to match the signature file
   common.signature <- rownames(x.signature) %in% rownames(x.data)
   common.data <- rownames(x.data) %in% rownames(x.signature)
-  x.data <- x.data[common.data,]
+  x.data.tmp <- x.data[common.data,]  # here, I need change again
+  rownames(x.data.tmp)
   x.signature <- x.signature[common.signature,]
   
   x.subdata <- x.data[rownames(x.signature),]
